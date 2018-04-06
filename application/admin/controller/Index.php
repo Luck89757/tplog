@@ -96,4 +96,9 @@ class Index extends Controller
             $this->success('退出成功！', 'admin/index/login');
         }
     }
+
+    public function miss()
+    {
+        return view();
+    }
 }

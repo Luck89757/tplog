@@ -73,4 +73,19 @@ class Member extends Model
             return '用户名或者密码错误！';
         }
     }
+
+    public function register($data)
+    {
+        $validate = new \app\common\validate\Member();
+        if (!$validate->scene('register')->check($data)) {
+            return $validate->getError();
+        }
+        $data['nickname'] = $data['username'];
+        $result = $this->allowField(true)->save($data);
+        if ($result) {
+            return 1;
+        }else {
+            return '注册失败！';
+        }
+    }
 }

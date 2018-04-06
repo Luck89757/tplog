@@ -16,7 +16,9 @@ class Member extends Validate
 {
     protected $rule = [
         'username|用户名' => 'require|unique:member',
+        'email|邮箱' => 'require|email',
         'password|密码' => 'require',
+        'conpass|确认密码' => 'require|confirm:password',
         'status|状态' => 'require',
         'oldpass|原密码' => 'require',
         'newpass|新密码' => 'require',
@@ -38,5 +40,10 @@ class Member extends Validate
     {
         return $this->only(['username', 'password', 'verify'])
             ->remove('username', 'unique');
+    }
+
+    public function sceneRegister()
+    {
+        return $this->only(['username', 'email', 'password', 'conpass', 'verify']);
     }
 }

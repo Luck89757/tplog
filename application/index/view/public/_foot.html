@@ -7,12 +7,29 @@
 <script src="/static/lib/layer/layer.js"></script>
 <script>
     $(function () {
-        $('#post').click(function () {
+        $('#postArticle').click(function () {
             layer.open({
                 title:'投稿中心暂时关闭',
                 content:'支付模块上线以后，重新开放投稿中心！',
                 icon:5,
                 anim:6
+            });
+            return false;
+        });
+
+        $('#loginout').click(function () {
+            $.ajax({
+                url:"{:url('index/index/loginout')}",
+                type:'post',
+                dataType:'json',
+                success:function () {
+                    layer.msg('退出成功！', {
+                        icon:6,
+                        time:2000
+                    }, function () {
+                        location.href = location.href;
+                    });
+                }
             });
             return false;
         });

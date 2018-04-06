@@ -45,3 +45,8 @@ function replace($data)
 {
     return str_replace('span', 'a', $data);
 }
+
+function arrayC($data)
+{
+	return implode('|', $data);
+}

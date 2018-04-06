@@ -13,9 +13,11 @@ Route::rule('/', 'index/index/index');
 Route::rule('article-<id>', 'index/article/article', 'get');
 Route::rule('search', 'index/article/articlesearch', 'post');
 Route::rule('login', 'index/index/login', 'get|post');
+Route::rule('loginout', 'index/index/loginout', 'post');
 Route::rule('register', 'index/index/register', 'get|post');
 Route::rule('my', 'index/article/articlemember', 'get');
 Route::rule('comment', 'index/article/articlecomment', 'post');
+Route::miss('index/index/miss');
 
 Route::group('admin', function () {
     Route::rule('/', 'admin/index/login', 'get|post');
@@ -48,4 +50,5 @@ Route::group('admin', function () {
     Route::rule('commentread/:id', 'admin/comment/commentread', 'get');
     Route::rule('commentdel', 'admin/comment/commentdel', 'post');
     Route::rule('set', 'admin/system/set', 'get|post');
+    Route::miss('admin/index/miss');
 });

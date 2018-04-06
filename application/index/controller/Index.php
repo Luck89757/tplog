@@ -40,4 +40,35 @@ class Index extends Base
         }
         return view();
     }
+
+    public function register()
+    {
+        if (request()->isAjax()) {
+            $data = [
+                'username' => input('post.username'),
+                'email' => input('post.email'),
+                'password' => input('post.password'),
+                'conpass' => input('post.conpass'),
+                'verify' => input('post.verify')
+            ];
+            $result = model('Member')->register($data);
+            if ($result == 1) {
+                $this->success('注册成功！');
+            }else {
+                $this->error($result);
+            }
+        }
+        return view();
+    }
+
+    public function loginout()
+    {
+        session(null);
+        $this->success('退出成功！', 'index/index/index');
+    }
+
+    public function miss()
+    {
+        return view();
+    }
 }

@@ -17,7 +17,7 @@ class System extends Model
         }
         $webInfo = $this->find($data['id']);
         $webInfo->webename = $data['webname'];
-        $webInfo->shortname = $dadta['shortname'];
+        $webInfo->shortname = $data['shortname'];
         $webInfo->copyright = $data['copyright'];
         $result = $webInfo->save();
         if ($result) {

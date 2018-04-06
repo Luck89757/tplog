@@ -30,11 +30,12 @@
             <ul class="nav navbar-nav navbar-right">
                 {if session('?index.id')}
                 <li><a href="{:url('index/article/articlemember')}">{:session('index.nickname')}</a></li>
+                <li><a href="#" id="loginout">退出</a></li>
                 {else /}
                 <li><a href="{:url('index/index/login')}">登录</a></li>
                 <li><a href="{:url('index/index/register')}">注册</a></li>
                 {/if}
-                <li><a href="#" id="post">投稿</a></li>
+                <li><a href="#" id="postArticle">投稿</a></li>
             </ul>
             <form action="{:url('index/article/articlesearch')}" class="navbar-form navbar-right" method="post">
                 <div class="form-group">
